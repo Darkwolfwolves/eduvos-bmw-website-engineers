@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Models | BMW South Africa</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for BMW-like look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="navbar-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Logo">
+            <span>BMW South Africa</span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="about.html">About BMW</a></li>
+            <li><a href="index.html" class="active">BMW Models</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero">
+        <video class="hero-bg" autoplay muted loop playsinline>
+            <source src="The BMW M3 background vid.mp4" type="video/mp4">
+            <!-- fallback image -->
+            <img src="fallback.jpg" alt="BMW Hero Background">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content glass">
+            <img class="hero-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Logo">
+            <h1>BMW Models</h1>
+            <p>
+                Experience the power, precision, and beauty of BMW. Explore our models and find your ultimate driving machine.
+            </p>
+            <a href="#models-grid" class="hero-btn">Discover Models</a>
+        </div>
+    </section>
+
+    <!-- Main Content with BMW emblem background -->
+    <div class="bmw-bg-wrapper">
+        <main>
+            <div class="main-content glass">
+                <div class="filter-container">
+                    <label for="model-filter">Filter by Series:</label>
+                    <select id="model-filter">
+                        <option value="all">All</option>
+                        <option value="1 Series">1 Series</option>
+                        <option value="3 Series">3 Series</option>
+                        <option value="5 Series">5 Series</option>
+                        <option value="7 Series">7 Series</option>
+                        <option value="X Series">X Series</option>
+                        <option value="M Series">M Series</option>
+                    </select>
+                </div>
+                <section class="models-grid" id="models-grid">
+                    <!-- Models will be injected by JS -->
+                </section>
+            </div>
+        </main>
+
+        <footer class="glass">
+            <div class="footer-content">
+                <span>&copy; 2025 BMW South Africa. All rights reserved.</span>
+                <ul class="footer-links">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html">Models</a></li>
+                    <li><a href="https://www.bmw.co.za/" target="_blank">Official BMW ZA</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

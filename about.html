@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About BMW | BMW South Africa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f6f7;
+            color: #222;
+        }
+        .bmw-hero {
+            position: relative;
+            background: url('https://www.bmw.co.za/content/dam/bmw/common/all-models/i-series/i7/2022/navigation/bmw-i7-modelcard.png') center right/cover no-repeat, linear-gradient(120deg, #eaf0f6 60%, #1c69d4 100%);
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 0 0 5vw;
+        }
+        .bmw-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #fff 40%, #1c69d4cc 100%);
+            opacity: 0.85;
+            z-index: 1;
+        }
+        .bmw-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 3rem 2rem 3rem 0;
+        }
+        .bmw-hero-content img {
+            width: 70px;
+            margin-bottom: 1.2rem;
+        }
+        .bmw-hero-content h1 {
+            font-size: 2.7rem;
+            font-weight: 800;
+            color: #1c69d4;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .bmw-hero-content p {
+            font-size: 1.25rem;
+            color: #222;
+            margin-bottom: 1.5rem;
+        }
+        .bmw-hero-btn {
+            display: inline-block;
+            background: #1c69d4;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.75rem 2.2rem;
+            border-radius: 30px;
+            box-shadow: 0 2px 10px #1c69d4bb;
+            text-decoration: none;
+            letter-spacing: 1.2px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .bmw-hero-btn:hover {
+            background: #174c99;
+            transform: scale(1.06) translateY(-2px);
+        }
+        .about-section-grid {
+            max-width: 1200px;
+            margin: 3rem auto 2.5rem auto;
+            padding: 0 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+        .about-card-wide, .about-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 7px 32px rgba(28,105,212,0.09), 0 1px 6px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: stretch;
+            margin: 0 auto;
+            padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+            gap: 2.1rem;
+            transition: box-shadow 0.22s, transform 0.22s;
+        }
+        .about-card-wide:hover, .about-card:hover {
+            box-shadow: 0 10px 48px rgba(28,105,212,0.17), 0 1.5px 18px rgba(0,0,0,0.08);
+            transform: translateY(-6px) scale(1.015);
+        }
+        .about-card-wide {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .about-card {
+            flex-direction: row;
+            justify-content: flex-start;
+            max-width: 900px;
+        }
+        .about-card-image-right {
+            flex-direction: row-reverse;
+        }
+        .about-img, .about-img-small {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-img img {
+            max-width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(28,105,212,0.13), 0 1.5px 12px rgba(0,0,0,0.09);
+            margin-bottom: 0.45rem;
+        }
+        .about-img-small img {
+            max-width: 170px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(28,105,212,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
+            margin-bottom: 0.2rem;
+        }
+        .caption {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.1rem;
+        }
+        .about-text {
+            flex: 1 1 0;
+            min-width: 240px;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+        .about-text h2 {
+            color: #1c69d4;
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+        .about-facts {
+            margin-top: 0.6rem;
+            margin-left: 1.2rem;
+            color: #222;
+            font-size: 1.03rem;
+            line-height: 1.7;
+        }
+        .about-facts li {
+            margin-bottom: 0.12rem;
+        }
+        .about-gallery {
+            max-width: 1200px;
+            margin: 2.5rem auto 1.5rem auto;
+            padding: 0 1.2rem;
+        }
+        .about-gallery h2 {
+            color: #1c69d4;
+            font-size: 1.23rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1.3rem;
+            text-align: center;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+            gap: 1.7rem;
+        }
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 13px;
+            box-shadow: 0 2px 16px rgba(28,105,212,0.08), 0 1.5px 12px rgba(0,0,0,0.06);
+            object-fit: cover;
+            aspect-ratio: 16/9;
+            transition: transform 0.18s, box-shadow 0.18s;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.04) translateY(-4px);
+            box-shadow: 0 10px 40px rgba(28,105,212,0.19), 0 1.5px 18px rgba(0,0,0,0.09);
+        }
+        footer {
+            background: #10131a;
+            color: #eaf0f6;
+            padding: 1.2rem 0;
+            margin-top: 2.5rem;
+            border-top: 1.5px solid rgba(255,255,255,0.12);
+            box-shadow: 0 -4px 24px #0008;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.99rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.1rem;
+            list-style: none;
+        }
+        .footer-links a {
+            color: #85b5f7;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        @media (max-width: 900px) {
+            .about-section-grid { gap: 2rem; }
+            .about-card-wide, .about-card { flex-direction: column; gap: 1.3rem; padding: 1.4rem 1rem; align-items: flex-start; }
+            .about-img img, .about-img-small img { max-width: 100%; }
+            .bmw-hero { padding: 2rem 0 2rem 0; }
+            .bmw-hero-content { padding: 2rem 1rem; }
+        }
+        @media (max-width: 650px) {
+            .bmw-hero-content h1 { font-size: 1.5rem; }
+            .about-section-grid { padding: 0 0.2rem; }
+            .main-hero-car { max-width: 99vw; border-radius: 7px; }
+            .about-card-wide, .about-card { padding: 1rem 0.4rem; border-radius: 7px; }
+            .gallery-grid { gap: 1rem; grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="navbar-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Logo">
+            <span>BMW South Africa</span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="about.html" class="active">About BMW</a></li>
+            <li><a href="index.html">BMW Models</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="bmw-hero" style="position:relative; min-height:60vh; overflow:hidden;">
+        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;filter:brightness(0.7);">
+            <source src="The BMW M3 background vid.mp4" type="video/mp4">
+        </video>
+        <div class="bmw-hero-overlay" style="background:linear-gradient(90deg,#fff 40%,#1c69d4cc 100%);opacity:0.85;position:absolute;inset:0;z-index:1;"></div>
+        <div class="bmw-hero-content" style="position:relative;z-index:2;max-width:600px;padding:3rem 2rem 3rem 0;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg" alt="BMW Logo" style="width:80px;margin-bottom:1.2rem;">
+            <h1 style="font-size:2.9rem;font-weight:900;color:#1c69d4;letter-spacing:2px;text-shadow:0 4px 24px #fff8;">About BMW</h1>
+            <p style="font-size:1.35rem;color:#fff;text-shadow:0 2px 8px #1c69d4cc;">The Ultimate Driving Machine.<br>Discover BMW's legacy, innovation, and passion for performance.</p>
+            <a href="index.html" class="bmw-hero-btn" style="background:#fff;color:#1c69d4;font-weight:700;">Explore BMW Models</a>
+        </div>
+    </section>
+
+    <!-- Animated Stats Section -->
+    <section style="background:rgba(255,255,255,0.95);padding:2.5rem 0 1.5rem 0;margin-bottom:2rem;">
+        <div style="display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap;max-width:1100px;margin:0 auto;">
+            <div style="text-align:center;">
+                <div style="font-size:2.5rem;font-weight:900;color:#1c69d4;" id="stat-years">0</div>
+                <div style="font-size:1.1rem;color:#333;">Years of<br>Innovation</div>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:2.5rem;font-weight:900;color:#1c69d4;" id="stat-countries">0</div>
+                <div style="font-size:1.1rem;color:#333;">Countries<br>Worldwide</div>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:2.5rem;font-weight:900;color:#1c69d4;" id="stat-employees">0</div>
+                <div style="font-size:1.1rem;color:#333;">Employees</div>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:2.5rem;font-weight:900;color:#1c69d4;" id="stat-models">0</div>
+                <div style="font-size:1.1rem;color:#333;">Models</div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="about-section-grid">
+            <!-- HISTORY -->
+            <div class="about-card-wide">
+                <div class="about-text">
+                    <h2>Our History</h2>
+                    <p>
+                        <strong>Founded in Munich, 1916</strong>, BMW (Bayerische Motoren Werke AG) began as an aircraft engine manufacturer. By 1923, BMW produced its first motorcycle, and by 1928 its first car. Today, BMW is a global icon of luxury, innovation, and driving pleasure.
+                    </p>
+                    <ul class="about-facts">
+                        <li>1916: Company founded in Munich, Germany</li>
+                        <li>1923: First BMW motorcycle (R 32)</li>
+                        <li>1928: First car (BMW 3/15)</li>
+                        <li>1972: BMW M division is created</li>
+                        <li>1994: BMW acquires Rover Group</li>
+                        <li>2013: Launch of BMW i (electric mobility)</li>
+                    </ul>
+                </div>
+                <div class="about-img">
+                    <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/history-heritage/history-of-bmw/1920x1080-1923-bmw-r32.jpg" alt="BMW R32 Motorcycle">
+                    <span class="caption">The BMW R32 (1923) - BMW's first motorcycle</span>
+                </div>
+            </div>
+
+            <!-- MISSION & VISION -->
+            <div class="about-card about-card-image-right">
+                <div class="about-text">
+                    <h2>Mission &amp; Vision</h2>
+                    <p>
+                        <strong>Mission:</strong> Delivering driving pleasure, premium quality, and sustainable mobility.<br>
+                        <strong>Vision:</strong> To be the world’s leading provider of premium products and services for individual mobility.
+                    </p>
+                </div>
+                <div class="about-img-small">
+                    <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/innovation/BMW-i-Vision-Circular/BMW-i-Vision-Circular-Exterior-1.jpg" alt="BMW Vision Circular">
+                </div>
+            </div>
+
+            <!-- INNOVATIONS -->
+            <div class="about-card about-card-image-left">
+                <div class="about-img-small">
+                    <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/inno-tech/connected-drive/bmw-connecteddrive-2023-01.jpg" alt="BMW ConnectedDrive">
+                </div>
+                <div class="about-text">
+                    <h2>Innovations</h2>
+                    <ul class="about-facts">
+                        <li>BMW i: Pioneering electric and hybrid vehicles</li>
+                        <li>ConnectedDrive: Digital solutions for drivers</li>
+                        <li>EfficientDynamics: Sustainable engineering</li>
+                        <li>Autonomous driving & advanced driver assistance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GLOBAL IMPACT -->
+            <div class="about-card-wide">
+                <div class="about-text">
+                    <h2>Global Impact</h2>
+                    <p>
+                        BMW operates in over <strong>150 countries</strong> with <strong>30+ production sites</strong> worldwide. The company employs more than 120,000 people and is committed to sustainability, innovation, and social responsibility.
+                    </p>
+                    <ul class="about-facts">
+                        <li>BMW Group Plant Rosslyn: First BMW plant outside Germany, based in South Africa</li>
+                        <li>Significant contributor to South African economy and exports</li>
+                        <li>Active in environmental and educational projects globally</li>
+                    </ul>
+                </div>
+                <div class="about-img">
+                    <img src="https://www.bmw.co.za/content/dam/bmw/marketZA/bmw_co_za/Images/BMW-Group-Plant-Rosslyn.jpg" alt="BMW Plant Rosslyn">
+                    <span class="caption">BMW Group Plant Rosslyn, South Africa</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="about-gallery">
+            <h2>BMW Moments</h2>
+            <div class="gallery-grid">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/design/bmw-concept-cs/bmw-concept-cs-2.jpg" alt="BMW Design">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/innovation/BMW-i4/2021/bmw-i4-2021-01.jpg" alt="BMW i4">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/history-heritage/history-of-bmw/1920x1080-bmw-m1-procar.jpg" alt="BMW M1 Procar">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/innovation/BMW-iNEXT/BMW-iNEXT-2021-exterior-2.jpg" alt="BMW iNEXT">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/design/bmw-x7/bmw-x7-02.jpg" alt="BMW X7">
+                <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/innovation/BMW-i3/bmw-i3-01.jpg" alt="BMW i3">
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass">
+        <div class="footer-content">
+            <span>&copy; 2025 BMW South Africa. All rights reserved.</span>
+            <ul class="footer-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html">Models</a></li>
+                <li><a href="https://www.bmw.co.za/" target="_blank">Official BMW ZA</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Add this script just before </body> to animate the stats -->
+    <script>
+    function animateStat(id, end, duration) {
+        const el = document.getElementById(id);
+        let start = 0;
+        const step = Math.ceil(end / (duration / 30));
+        const timer = setInterval(() => {
+            start += step;
+            if (start >= end) {
+                el.textContent = end.toLocaleString();
+                clearInterval(timer);
+            } else {
+                el.textContent = start.toLocaleString();
+            }
+        }, 30);
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        animateStat("stat-years", 108, 1200);      // 108 years (since 1916)
+        animateStat("stat-countries", 150, 1200);  // 150 countries
+        animateStat("stat-employees", 120000, 1200); // 120,000 employees
+        animateStat("stat-models", 30, 1200);      // 30 models (example)
+    });
+    </script>
+</body>
+</html>
